@@ -9,13 +9,13 @@ jobs:
       - run:
           name: Install all required dependencies
           command: |
-            sudo apt-get update -y
-            sudo apt-get install curl -y
-            sudo apt-get install python3 -y
-            sudo apt install python3-pip -y
-            sudo pip3 install --upgrade pip
-            sudo pip3 install flask
-            sudo pip3 install flask-mysql
+            apt-get update -y
+            apt-get install curl -y
+            apt-get install python3 -y
+            apt install python3-pip -y
+            pip3 install --upgrade pip
+            pip3 install flask
+            pip3 install flask-mysql
             python3 app.py &
   #build-docker:
   #  docker:
