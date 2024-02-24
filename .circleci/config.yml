@@ -31,7 +31,7 @@ Workflow:
     jobs:
       - build_app
       #test:
-      #  requires: [build_app]
+      # requires: [build_app]
       build_image:
         requires: [build_app]
       #deploy_ec2:
