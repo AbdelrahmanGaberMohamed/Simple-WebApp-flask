@@ -2,9 +2,9 @@ version: 2.1
 
 jobs:
   build:
-    working_directory: ~/circleci-python
+    #working_directory: ~/circleci-python
     docker:
-      - image: "circleci/python:3.6.4"
+      - image: "python"
     steps:
       - checkout
       - run:
@@ -13,7 +13,7 @@ jobs:
             pip install --upgrade pip
             pip install flask
             pip install flask-mysql
-            flask run --host=0.0.0.0 --port=8080
+            python3 app.py
 #  test:
 
   #build-image:
