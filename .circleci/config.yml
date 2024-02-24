@@ -27,13 +27,13 @@ jobs:
 
 
 Workflows:
-  CICD:
+  default:
     jobs:
-      - build_app
+      - build-app
       #test:
-      # requires: [build_app]
+      # requires: [build-app]
       build_image:
-        requires: [build_app]
+        requires: [build-app]
       #deploy-ec2:
       #  requires: []
       #configure-ec2:
