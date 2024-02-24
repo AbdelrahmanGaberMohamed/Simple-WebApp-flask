@@ -10,17 +10,17 @@ jobs:
       - run: python3 app.py
 #  test:
 
-  build-image:
-      docker:
-        - image: docker:19.03.12
-      steps:
-        - checkout
-        - setup_remote_docker
-        - run:
-          name: build docker image
-          command: |
-            docker build -f Dockerfile -t abdelrahmangaber/simple-webapp-flask
-            docker push abdelrahmangaber/simple-webapp-flask
+  #build-image:
+  #    docker:
+  #      - image: docker:19.03.12
+  #    steps:
+  #      - checkout
+  #      - setup_remote_docker
+  #      - run:
+  #        name: build docker image
+  #        command: |
+  #          docker build -f Dockerfile -t abdelrahmangaber/simple-webapp-flask
+  #          docker push abdelrahmangaber/simple-webapp-flask
   #deploy-ec2:
   #configure-ec2:
   #deploy-container:
