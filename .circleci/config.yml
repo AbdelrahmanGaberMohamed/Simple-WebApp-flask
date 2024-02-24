@@ -2,7 +2,6 @@ version: 2.1
 
 jobs:
   test-app:
-    #working_directory: ~/circleci-python
     docker:
       - image: "ubuntu"
     steps:
@@ -18,10 +17,21 @@ jobs:
             pip3 install flask
             pip3 install flask-mysql
             python3 app.py &
-
+  build-docker:
+    docker:
+      - image: "docker:19.03.12"
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+        name: run docker conatiner
+        command: | 
+        docker run -d -p 80:80 --name my-apache-container httpd
 
 workflows:
   build_and_test:
     jobs:
       - test-app
+      - build-docker:
+        requires: [test-app]
       
