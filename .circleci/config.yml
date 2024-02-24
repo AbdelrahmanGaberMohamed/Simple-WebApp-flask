@@ -10,8 +10,8 @@ jobs:
       - run:
           name: Install all required dependencies
           command: |
-            sudo yum update
-            sudo yum install python3
+            yum update
+            yum install python3
             pip install --upgrade pip
             pip install flask
             pip install flask-mysql
