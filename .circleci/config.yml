@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build:
+  test-app:
     #working_directory: ~/circleci-python
     docker:
       - image: "ubuntu"
@@ -16,11 +16,13 @@ jobs:
             pip3 install --upgrade pip
             pip3 install flask
             pip3 install flask-mysql
-            python3 app.py
+            python3 app.py &
+            curl http://localhost:8080 >> result
+            cat result
 
 
 workflows:
   build_and_test:
     jobs:
-      - build
+      - test-app
       
