@@ -26,7 +26,7 @@ jobs:
   #deploy_container:
 
 
-Workflow:
+Workflows:
   CICD:
     jobs:
       - build_app
