@@ -11,8 +11,8 @@ jobs:
 #  test:
 
   build_image:
-    docker:
-        - image: docker
+      docker:
+        - image: docker:19.03.12
       steps:
         - checkout
         - setup_remote_docker
