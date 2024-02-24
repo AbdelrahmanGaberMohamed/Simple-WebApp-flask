@@ -1,0 +1,44 @@
+version: 2.1
+
+jobs:
+  build_app:
+    working_directory: ~/circleci-python
+    docker:
+      - image: "circleci/python:3.6.4"
+    steps:
+      - checkout
+      - run: python3 app.py
+#  test:
+
+  build_image:
+    docker:
+        - image: docker
+      steps:
+        - checkout
+        - setup_remote_docker
+        - run:
+          name: build docker image
+          command: |
+            docker build -f Dockerfile -t abdelrahmangaber/simple-webapp-flask
+            docker push abdelrahmangaber/simple-webapp-flask
+  #deploy_ec2:
+  #configure_ec2:
+  #deploy_container:
+
+
+Workflow:
+  CICD:
+    jobs:
+      - build_app
+      #test:
+      #  requires: [build_app]
+      build_image:
+        requires: [build_app]
+      #deploy_ec2:
+      #  requires: []
+      #configure_ec2:
+      #  requires: []
+      #deploy_container:
+      #  requires: []
+      
+      
