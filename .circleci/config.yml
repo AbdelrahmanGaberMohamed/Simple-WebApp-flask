@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build-app:
+  build:
     working_directory: ~/circleci-python
     docker:
       - image: "circleci/python:3.6.4"
@@ -29,11 +29,11 @@ jobs:
 Workflows:
   default:
     jobs:
-      - build-app
+      - build
       #test:
       # requires: [build-app]
       build_image:
-        requires: [build-app]
+        requires: [build]
       #deploy-ec2:
       #  requires: []
       #configure-ec2:
