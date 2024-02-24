@@ -1,0 +1,43 @@
+version: 2.1
+
+jobs:
+  build:
+    #working_directory: ~/circleci-python
+    docker:
+      - image: "python"
+    steps:
+      - checkout
+      - run:
+          name: Install all required dependencies
+          command: |
+            pip install --upgrade pip
+            pip install flask
+            pip install flask-mysql
+            python3 app.py
+#  test:
+
+  #build-image:
+  #    docker:
+  #      - image: docker:19.03.12
+  #    steps:
+  #      - checkout
+  #      - setup_remote_docker
+  #      - run:
+  #        name: build docker image
+  #        command: |
+  #          docker build -f Dockerfile -t abdelrahmangaber/simple-webapp-flask
+  #          docker push abdelrahmangaber/simple-webapp-flask
+  #deploy-ec2:
+  #configure-ec2:
+  #deploy-container:
+
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      #- test:
+      #    requires:
+      #      - build
+      
+      
