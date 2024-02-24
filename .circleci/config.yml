@@ -12,9 +12,10 @@ jobs:
           command: |
             apt-get update -y
             apt-get install python3 -y
-            pip install --upgrade pip -y
-            pip install flask -y
-            pip install flask-mysql -y
+            apt install python3-pip -y
+            pip3 install --upgrade pip -y
+            pip3 install flask -y
+            pip3 install flask-mysql -y
             python3 app.py
 
 
