@@ -4,14 +4,14 @@ jobs:
   build:
     #working_directory: ~/circleci-python
     docker:
-      - image: "centos"
+      - image: "ubuntu"
     steps:
       - checkout
       - run:
           name: Install all required dependencies
           command: |
-            yum update
-            yum install python3
+            apt-get update
+            apt-get install python3
             pip install --upgrade pip
             pip install flask
             pip install flask-mysql
