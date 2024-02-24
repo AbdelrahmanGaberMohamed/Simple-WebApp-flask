@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test-app:
     docker:
-      - image: "cimg/base:2022.09"
+      - image: "cimg/base:latest"
     steps:
       - checkout
       - run:
@@ -12,7 +12,7 @@ jobs:
             sudo apt-get update -y
             sudo apt-get install curl -y
             sudo apt-get install python3 -y
-            #sudo apt install python3-pip -y
+            sudo apt install python3-pip -y
             sudo pip3 install --upgrade pip
             sudo pip3 install flask
             sudo pip3 install flask-mysql
