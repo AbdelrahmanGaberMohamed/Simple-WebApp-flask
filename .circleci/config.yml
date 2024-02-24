@@ -26,19 +26,12 @@ jobs:
   #deploy-container:
 
 
-Workflows:
-  default:
+workflows:
+  build_and_test:
     jobs:
       - build
-      #test:
-      # requires: [build-app]
-      build_image:
-        requires: [build]
-      #deploy-ec2:
-      #  requires: []
-      #configure-ec2:
-      #  requires: []
-      #deploy-container:
-      #  requires: []
+      #- test:
+      #    requires:
+      #      - build
       
       
