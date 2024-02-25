@@ -17,22 +17,9 @@ jobs:
             pip3 install flask
             pip3 install flask-mysql
             python3 app.py &        
-  build-docker:
-    docker:
-      - image: "ubuntu"
-    steps:
-      - checkout
-      #- setup_remote_docker:
-      #  version: 19.03.12
-      - run:
-        name: test
-        command: |
-          echo "Hello World"
 
 workflows:
   build_and_test:
     jobs:
       - test-app
-      - build-docker
-      #  requires: [test-app]
       
