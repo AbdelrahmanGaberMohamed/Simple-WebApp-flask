@@ -35,5 +35,5 @@ workflows:
     jobs:
       - test-app
       - docker-build:
-          requreis: [test-app]
+          requires: [test-app]
       
