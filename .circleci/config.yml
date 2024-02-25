@@ -16,8 +16,16 @@ jobs:
             pip3 install --upgrade pip
             pip3 install flask
             pip3 install flask-mysql
-            python3 app.py &
-  #build-docker:
+            python3 app.py &        
+  build-docker:
+    docker:
+      - image: "docker"
+    steps:
+      - checkout
+      - run:
+        name: test
+        command: |
+          echo "Hello World"
   #  docker:
   #    - image: "docker:19.03.12"
   #  steps:
