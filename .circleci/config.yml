@@ -22,8 +22,8 @@ jobs:
       - image: "ubuntu"
     steps:
       - checkout
-      - setup_remote_docker:
-        version: 19.03.12
+      #- setup_remote_docker:
+      #  version: 19.03.12
       - run:
         name: test
         command: |
