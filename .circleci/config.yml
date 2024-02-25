@@ -42,6 +42,6 @@ workflows:
   build_and_test:
     jobs:
       - test-app
-      #- build-docker:
+      - build-docker
       #  requires: [test-app]
       
