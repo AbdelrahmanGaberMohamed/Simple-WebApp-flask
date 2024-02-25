@@ -22,13 +22,15 @@ jobs:
             python3 app.py & 
   docker-build:
     docker:
-      - image: "ubuntu"
+      - image: "docker"
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: test
           command: |
-            echo "Hello World!"
+            docker run -d httpd
+            #echo "Hello World!"
 
 workflows:
   build_and_test:
