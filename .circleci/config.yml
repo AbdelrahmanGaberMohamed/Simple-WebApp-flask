@@ -19,7 +19,7 @@ jobs:
             python3 app.py &        
   build-docker:
     docker:
-      - image: "docker:19.03.12"
+      - image: "ubuntu"
     steps:
       - checkout
       - setup_remote_docker:
