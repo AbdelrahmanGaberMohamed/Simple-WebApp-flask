@@ -20,7 +20,15 @@ jobs:
           name: run the app
           command: |
             python3 app.py & 
-      
+  docker-build:
+    docker:
+      - image: "ubuntu"
+    steps:
+      - checkout
+      - run:
+          name: test
+          command: |
+            echo "Hello World!"
 
 workflows:
   build_and_test:
