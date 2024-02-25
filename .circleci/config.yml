@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install all required dependencies
+          name: Run the server
           command: |
             apt-get update -y
             apt-get install curl -y
@@ -16,10 +16,20 @@ jobs:
             pip3 install --upgrade pip
             pip3 install flask
             pip3 install flask-mysql
-            python3 app.py &        
+            python3 app.py & 
+  docker-build:
+    docker:
+      - image: "ubuntu"
+    steps:
+      - checkout
+      - run:
+        name: test
+        command: |
+          echo "hello world"      
 
 workflows:
   build_and_test:
     jobs:
       - test-app
+      - docker-build
       
