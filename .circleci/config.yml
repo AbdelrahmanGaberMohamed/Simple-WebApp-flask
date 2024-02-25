@@ -29,7 +29,8 @@ jobs:
       - run:
           name: test
           command: |
-            docker run -d httpd
+            docker image build -t abdelrahmangaber/simple-webapp-flask:1.0
+            docker image list
             #echo "Hello World!"
 
 workflows:
