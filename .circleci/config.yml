@@ -19,9 +19,11 @@ jobs:
             python3 app.py &        
   build-docker:
     docker:
-      - image: "docker"
+      - image: "docker:19.03.12"
     steps:
       - checkout
+      - setup_remote_docker:
+        version: 19.03.12
       - run:
         name: test
         command: |
