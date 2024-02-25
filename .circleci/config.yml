@@ -28,15 +28,6 @@ jobs:
         name: test
         command: |
           echo "Hello World"
-  #  docker:
-  #    - image: "docker:19.03.12"
-  #  steps:
-  #    - checkout
-  #    - setup_remote_docker
-   #    - run:
-   #     name: run docker conatiner
-   #     command: | 
-   #       docker run -d -p 80:80 --name my-apache-container httpd
 
 workflows:
   build_and_test:
