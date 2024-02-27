@@ -1,0 +1,47 @@
+---
+- name: Install docker
+  hosts: all
+  become: true
+  tasks:
+    - name: Install dependencies
+      apt:
+        name:  "{{ dependencies }}"
+        state: present
+      vars:
+        dependencies:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+
+    - name: Add GPG Key
+      get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /etc/apt/trusted.gpg.d/docker.asc
+        mode: '0644'
+        force: true
+
+    - name: Add docker repo
+      apt_repository:
+        repo: deb [arch=amd64]  https://download.docker.com/linux/ubuntu bionic stable
+        filename: docker
+        state: present
+
+    - name: install Docker
+      apt:
+        name: "{{ docker }}"
+        state: present
+        update_cache: yes
+      vars:
+        docker:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+    - name: Start and enable docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+

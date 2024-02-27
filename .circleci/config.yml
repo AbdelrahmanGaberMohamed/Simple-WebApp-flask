@@ -27,6 +27,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: setup docker
+          command: |
+            
+      - run:
           name: test
           command: |
             docker build Dockerfile -t abdelrahmangaber/simple-webapp-flask:1.0
