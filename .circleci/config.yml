@@ -29,7 +29,7 @@ jobs:
       - run:
           name: test
           command: |
-            docker build Dockerfile -t abdelrahmangaber/simple-webapp-flask:1.0
+            docker build -t abdelrahmangaber/simple-webapp-flask:1.0 .
             docker image list
             #echo "Hello World!"
 
