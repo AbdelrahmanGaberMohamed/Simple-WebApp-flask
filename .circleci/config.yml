@@ -25,14 +25,7 @@ jobs:
       - image: "ubuntu"
     steps:
       - checkout
-      #- setup_remote_docker
-      - run:
-          name: setup docker
-          command: |
-            apt update -y
-            apt install -y ansible
-            ansible-playbook docker-playbook.yml
-            
+      - setup_remote_docker
       - run:
           name: test
           command: |
