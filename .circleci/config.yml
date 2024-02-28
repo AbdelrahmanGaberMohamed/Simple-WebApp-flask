@@ -24,7 +24,6 @@ jobs:
     machine:
       image: ubuntu-2204:2024.01.1
       resource_class: large
-      - docker
     docker_layer_caching: true
     steps:
       - checkout
