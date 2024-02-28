@@ -23,8 +23,8 @@ jobs:
   docker-build:
     machine:
       image: ubuntu-2204:2024.01.1
-      resource_class: large
-    docker_layer_caching: true
+      docker_layer_caching: true    # default - false
+    resource_class: large
     steps:
       - checkout
       - run:
